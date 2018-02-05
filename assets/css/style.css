@@ -1,0 +1,27 @@
+.lefts {
+	text-align: left;
+	padding-left: 2%;
+}
+
+.centers {
+	text-align: center;
+}
+
+.rights {
+	text-align: right;
+	padding-right: 2%;
+}
+
+#row1news, #row1quote, #row1commute {
+	padding-top: 1%;
+}
+
+#row4credit, #row4blank, #row4jcs {
+	padding-bottom: 1%;
+}
+
+.bottoms {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
