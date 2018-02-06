@@ -12,6 +12,35 @@
 	padding-right: 2%;
 }
 
+.news-power {
+	text-align: right;
+	font-size: 8px;
+}
+
+.collapse-box {
+	border-radius: 25px;
+	background-color: lightgrey;
+	padding: 5%;
+	margin-top: 3%;
+	position: absolute;
+	width: auto;
+	z-index: 1;
+}
+
+.row-two {
+	margin-top: 15%;
+}
+
+.news-article {
+	font-size: 14px;
+	text-align: right;
+}
+
+.news-source {
+	font-size: 10px;
+	text-align: right;
+}
+
 #row1news, #row1quote, #row1commute {
 	padding-top: 1%;
 }
