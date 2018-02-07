@@ -70,11 +70,11 @@
 var background = $("<body>");
 
 // var createBackground = function(image) {
-var queryURL = "https://api.unsplash.com/photos/?client_id=c970dc76f602cc4e3a00b5108b19b36c937b43f31109a0709eaa0d2bd66f1b6f";
+var queryURL = "https://api.unsplash.com/collections/1203218/?client_id=c970dc76f602cc4e3a00b5108b19b36c937b43f31109a0709eaa0d2bd66f1b6f";
 
 $.ajax({
   url: queryURL,
-  method: "GET/search/nature"
+  method: "GET/collections/id:"
 }).then(function(imageResponse){
   var backgroundImage = Math.floor(Math.random() * imageResponse.length)
   console.log(imageResponse[backgroundImage].urls.full);
