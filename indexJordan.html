@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styleJordan.css">
 </head>
 
 <body>
@@ -15,17 +15,16 @@
         <div class="col-md-4 lefts" id="row1news">
             <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Trending News</button>
             <div id="demo" class="collapse">
-			    <div class="collapse-box">
-				    <div class="news-article" id="news1-here"></div>
-				    <div class="news-source" id="source1-here"></div>
-				    <div class="news-article" id="news2-here"></div>
-				    <div class="news-source" id="source2-here"></div>
-				    <div class="news-article" id="news3-here"></div>
-				    <div class="news-source" id="source3-here"></div>
-				    <p class="news-power">Powered by NewsAPI.org</p>
-			    </div>
-			</div>        
-    
+                <div class="collapse-box">
+                    <div class="news-article" id="news1-here"></div>
+                    <div class="news-source" id="source1-here"></div>
+                    <div class="news-article" id="news2-here"></div>
+                    <div class="news-source" id="source2-here"></div>
+                    <div class="news-article" id="news3-here"></div>
+                    <div class="news-source" id="source3-here"></div>
+                    <p class="news-power">Powered by NewsAPI.org</p>
+                </div>
+            </div>
         </div>
         <div class="col-md-4 centers" id="row1quote">
             <div id="quote-here"></div>
@@ -35,7 +34,6 @@
             <p>Commute</p>
         </div>
     </div>
-	
     <!-- //////////////////// -->
     <div class="row row-two">
         <div class="col-md-4 lefts" id="row2blank1">
@@ -69,10 +67,32 @@
             <p>Blank</p>
         </div>
         <div class="col-md-4 rights" id="row4jcs">
-            <p>journalDiv - calendarDiv - settingsDiv</p>
+            <div class="dropup">
+                <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
+                    Journal
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>Journal Entree 1</li>
+                    <li class="divider"></li>
+                    <li>Journal Entree 2</li>
+                </ul>
+            </div>
+            <div class="dropup">
+                <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
+                    Calendar
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>Calendar Entry 1</li>
+                    <li class="divider"></li>
+                    <li>Calendar Entry 2</li>
+                </ul>
+            </div>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Cog_font_awesome.svg" alt="Settings" height="30px" width="30px">
         </div>
     </div>
-        	
     <!-- //////////////////// -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
