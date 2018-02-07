@@ -85,9 +85,9 @@ body {
 }
 
 .journal-button {
-	display: left
+	display: inline-block
 }
 
 .settings-button {
-	display: inline-block
+	display: left
 }
