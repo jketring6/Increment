@@ -9,6 +9,7 @@
   };
   firebase.initializeApp(config);
 
+  var database = firebase.database();
   var auth = firebase.auth();
 
  $(document).on("click","#logIn", function() {
@@ -47,27 +48,35 @@ auth.onAuthStateChanged(firebaseUser => {
     console.log(firebaseUser);
     console.log(firebaseUser.uid);
     userID = firebaseUser.uid
+    //Need to make each of the first branches from firebase correspond to a single user
   } else {
     console.log("Not logged in");
     $("#logOut").addClass("hide");
   }
+
+
 })
+$("#journal-entry").on("click", function(event) {
+      event.preventDefault();
+      journalEntry = $("#journal-entry").val().trim();
+   database.ref().child(user).append({
+          journalEntry: journalEntry,
+          dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
+}); 
 
+    // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
+    database.ref(user).on("child_added", function(childSnapshot) {
 
+      // full list of items to the well
+      $("#journal-entries").append("<li class=journal>" + childSnapshot.val().dateAdded +  ": " + childSnapshot.val().journalEntry + "<br>");
 
-// function showPass() {
-//     var queryURL = "https://project-1-c7fd4.firebaseio.com/.json"
+    // Handle the errors
+    }, function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    });
 
-//     $.ajax({
-//       url: queryURL,
-//       method: "GET"
-//     }).then(function(response) {
-
-//         console.log(response)
-
-//        });
-// }
   
 
-  // copy this in read and write "auth != null"
+  
 
