@@ -1,11 +1,11 @@
 var config = {
-   apiKey: "AIzaSyDmB-tG2duDhOxylkNxxhx6HD70tfdTYJw",
-   authDomain: "fir-time-644aa.firebaseapp.com",
-   databaseURL: "https://fir-time-644aa.firebaseio.com",
-   projectId: "fir-time-644aa",
-   storageBucket: "fir-time-644aa.appspot.com",
-   messagingSenderId: "668876946692"
- };
+  apiKey: "AIzaSyAUZ6srtHsxIDDM-3zeuXAQr6C733mm_og",
+  authDomain: "project-1-c7fd4.firebaseapp.com",
+  databaseURL: "https://project-1-c7fd4.firebaseio.com",
+  projectId: "project-1-c7fd4",
+  storageBucket: "project-1-c7fd4.appspot.com",
+  messagingSenderId: "612657157904"
+};
 
 firebase.initializeApp(config);
 
@@ -20,7 +20,7 @@ $(document).on("submit", function(event) {
 
   journalInput = $("#user-input").val().trim();
 
-  database.ref().push( {
+  database.ref().push({
     entryNumber: count,
     journalEntry: journalInput
   });
