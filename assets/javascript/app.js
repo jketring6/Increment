@@ -127,7 +127,7 @@ $.ajax({
 	url: queryURL,
 	method: "GET"
 }).then(function(quoteResponse) {
-	console.log("askjdn;afbdjnsaskdfj",quoteResponse);
+	console.log(quoteResponse);
 
 	var quote = quoteResponse.quote;
 	var author = quoteResponse.author;
