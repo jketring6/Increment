@@ -57,7 +57,7 @@ auth.onAuthStateChanged(firebaseUser => {
       $("#logOut").addClass("hide");
   }
 
-   database.ref("/user").set({
+   database.ref("/user").push({
       userID: userID,
     });
 });
@@ -76,12 +76,12 @@ $("#journal-entry").on("click", function(event) {
 // =========================================================== NEWS ================================================================
 
 
-     var queryURL = 'https://newsapi.org/v2/top-headlines?' +
+     var queryURLnews = 'https://newsapi.org/v2/top-headlines?' +
          'country=us&' +
          'apiKey=90dcb619e6ce411f953e53b282297dee';
 
      $.ajax({
-         url: queryURL,
+         url: queryURLnews,
          method: "GET"
      }).then(function(newsResponse) {
          console.log(newsResponse);
@@ -121,10 +121,10 @@ $("#journal-entry").on("click", function(event) {
 
 // =========================================================== Quote  =========================================================== 
 
-var queryURL = "https://random-quote-generator.herokuapp.com/api/quotes/random"
+var queryURLquote = "https://random-quote-generator.herokuapp.com/api/quotes/random"
 
 $.ajax({
-	url: queryURL,
+	url: queryURLquote,
 	method: "GET"
 }).then(function(quoteResponse) {
 	console.log(quoteResponse);
@@ -139,22 +139,22 @@ $.ajax({
 /*========================================== Background =================================*/
 
 
-var queryURL2 = "https://api.unsplash.com/users/kellysikkema/collections?client_id=c970dc76f602cc4e3a00b5108b19b36c937b43f31109a0709eaa0d2bd66f1b6f";
-$.ajax({
-    url: queryURL2,
-    method: "GET"
-  }).then(function(imageResponse){    
-    var arr = [];
-    for (var i = 0; i < imageResponse.length; i++) {
-      var currentObj = imageResponse[i]["preview_photos"]
-      for(var j = 0; j < currentObj.length; j++){      
-        arr.push(currentObj[j].urls.full)
-      }
-    }
-    var backgroundImage = Math.floor(Math.random() * arr.length)
+// var queryURL2 = "https://api.unsplash.com/users/kellysikkema/collections?client_id=c970dc76f602cc4e3a00b5108b19b36c937b43f31109a0709eaa0d2bd66f1b6f";
+// $.ajax({
+//     url: queryURL2,
+//     method: "GET"
+//   }).then(function(imageResponse){    
+//     var arr = [];
+//     for (var i = 0; i < imageResponse.length; i++) {
+//       var currentObj = imageResponse[i]["preview_photos"]
+//       for(var j = 0; j < currentObj.length; j++){      
+//         arr.push(currentObj[j].urls.full)
+//       }
+//     }
+//     var backgroundImage = Math.floor(Math.random() * arr.length)
 
-    $('body').css('background','linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(' + arr[backgroundImage] + ')');
-  });
+//     $('body').css('background','linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(' + arr[backgroundImage] + ')');
+//   });
 
 // ======================================================= Commute =============================================
 
@@ -164,10 +164,10 @@ var arriveLocation = "";
 
 
 function getCommuteTime(departLocation, arriveLocation) {
-    var queryURL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + departLocation + "&destinations=" + arriveLocation + "&key=AIzaSyBV2ruXz-bzml8rk9eIJJyQypcERMeSVhQ"
+    var queryURLlocation = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + departLocation + "&destinations=" + arriveLocation + "&key=AIzaSyBV2ruXz-bzml8rk9eIJJyQypcERMeSVhQ"
 
     $.ajax({
-      url: queryURL,
+      url: queryURLlocation,
       method: "GET"
     }).then(function(response) {
 
@@ -201,10 +201,10 @@ function getCommuteTime(departLocation, arriveLocation) {
 
 function getLocalWeather(city) {
    
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=d8d64a31b79e4c92c420bd81c4289876";
+    var queryURLweather = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=d8d64a31b79e4c92c420bd81c4289876";
 
     $.ajax({
-      url: queryURL,
+      url: queryURLweather,
       method: "GET"
     }).then(function(response) {
     	var tempF = Math.floor((9/5)*(response.main.temp - 273) + 32)
@@ -272,18 +272,18 @@ function getLocalWeather(city) {
 
   // =========================================================== Journal =========================================================== 
 
-var config = {
-  apiKey: "AIzaSyAUZ6srtHsxIDDM-3zeuXAQr6C733mm_og",
-  authDomain: "project-1-c7fd4.firebaseapp.com",
-  databaseURL: "https://project-1-c7fd4.firebaseio.com",
-  projectId: "project-1-c7fd4",
-  storageBucket: "project-1-c7fd4.appspot.com",
-  messagingSenderId: "612657157904"
-};
+// var config = {
+//   apiKey: "AIzaSyAUZ6srtHsxIDDM-3zeuXAQr6C733mm_og",
+//   authDomain: "project-1-c7fd4.firebaseapp.com",
+//   databaseURL: "https://project-1-c7fd4.firebaseio.com",
+//   projectId: "project-1-c7fd4",
+//   storageBucket: "project-1-c7fd4.appspot.com",
+//   messagingSenderId: "612657157904"
+// };
 
-firebase.initializeApp(config);
+// firebase.initializeApp(config);
 
-var database = firebase.database();
+// var database = firebase.database();
 
 var journalInput = "";
 var count = 0;
