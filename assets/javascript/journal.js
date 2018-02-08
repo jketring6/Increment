@@ -18,14 +18,14 @@ $(document).on("submit", function(event) {
   event.preventDefault();
   count++;
 
-  journalInput = $("#user-input").val().trim();
+  journalInput = $("#journal-input").val().trim();
 
   database.ref().push({
     entryNumber: count,
     journalEntry: journalInput
   });
 
-  $("#user-input").val("");
+  $("#journal-input").val("");
 });
 
 
@@ -63,7 +63,7 @@ $(document.body).on("click", ".checkbox", function() {
 
 
      //TODO: 
-     //remove the journal entry user from Firebase upon X checkbox
+     //remove the journal entry journal from Firebase upon X checkbox
      //display entry body upon clicking, maybe nice animated window
      //integrate into login to retain user profile
 
