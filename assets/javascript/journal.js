@@ -6,17 +6,23 @@ var config = {
    storageBucket: "fir-time-644aa.appspot.com",
    messagingSenderId: "668876946692"
  };
- firebase.initializeApp(config);
 
- var database = firebase.database();
+firebase.initializeApp(config);
+
+var database = firebase.database();
 
 var journalInput = "";
+var count = 0;
 
 $(document).on("submit", function(event) {
   event.preventDefault();
+  count++;
+ 
+
   journalInput = $("#user-input").val().trim();
 
   database.ref().push( {
+    entryNumber: count,
     journalEntry: journalInput
   });
 
@@ -24,11 +30,20 @@ $(document).on("submit", function(event) {
 });
 
 
-//append as li + time stamp + divider 
-// database.ref().on("child_added", function(snapshotJ) {
-//   var newRow = $("<li>");
-//   var addrow = snapshotJ.val();
+// append as li + time stamp + divider 
+database.ref().on("child_added", function(snapshotJ) {
+  var newRow = $("<li>");
+  var addRow = snapshotJ.val();
+  var timeStamp = moment().format('lll');
 
-//   newRow.append(journalInput + )
+  newRow.append(addRow.journalEntry + "<br> <br>" + timeStamp + "<li class='divider'> </li>");
 
-// })
+  $("#journal-entries").append(newRow);
+
+})
+
+
+
+
+//iterate i -> infiity
+  //$(..)...append("jornal entry" + i )

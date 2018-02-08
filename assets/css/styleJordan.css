@@ -1,5 +1,5 @@
 body {
-	background-image: url(../images/ales-krivec-26310.jpg);
+	/*background-image: url(../images/ales-krivec-26310.jpg);*/
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
@@ -90,4 +90,11 @@ body {
 
 .settings-button {
 	display: left
+}
+
+.dropdown-menu {
+  background-color: lightseagreen;
+  white-space: wrap;
+  max-height: 1600%;
+  overflow-y:scroll; 
 }
