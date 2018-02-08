@@ -11,6 +11,7 @@
 
   var database = firebase.database();
   var auth = firebase.auth();
+  var userID;
 
  $(document).on("click","#logIn", function() {
     event.preventDefault();
@@ -43,38 +44,42 @@ $(document).on("click","#logOut", function() {
 })
 
 auth.onAuthStateChanged(firebaseUser => {
-  if(firebaseUser) {
-    $("#logOut").removeClass("hide");
-    console.log(firebaseUser);
-    console.log(firebaseUser.uid);
-    userID = firebaseUser.uid
-    //Need to make each of the first branches from firebase correspond to a single user
-  } else {
-    console.log("Not logged in");
-    $("#logOut").addClass("hide");
+    if(firebaseUser) {
+      $("#logOut").removeClass("hide");
+      console.log(firebaseUser);
+      console.log(firebaseUser.uid);
+      userID = firebaseUser.uid
+      //Need to make each of the first branches from firebase correspond to a single user
+    } else {
+      console.log("Not logged in");
+      $("#logOut").addClass("hide");
   }
 
+   database.ref("/user").set({
+      userID: userID,
+    });
+});
 
-})
 $("#journal-entry").on("click", function(event) {
       event.preventDefault();
       journalEntry = $("#journal-entry").val().trim();
-   database.ref().child(user).append({
+   database.ref("user").child(userID).append({
           journalEntry: journalEntry,
           dateAdded: firebase.database.ServerValue.TIMESTAMP
+
     });
 }); 
 
     // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
-    database.ref(user).on("child_added", function(childSnapshot) {
+    // database.ref(user).on("child_added", function(childSnapshot) {
 
-      // full list of items to the well
-      $("#journal-entries").append("<li class=journal>" + childSnapshot.val().dateAdded +  ": " + childSnapshot.val().journalEntry + "<br>");
+    //   // full list of items to the well
+    //   $("#journal-entries").append("<li class=journal>" + childSnapshot.val().dateAdded +  ": " + childSnapshot.val().journalEntry + "<br>");
 
-    // Handle the errors
-    }, function(errorObject) {
-      console.log("Errors handled: " + errorObject.code);
-    });
+    // // Handle the errors
+    // }, function(errorObject) {
+    //   console.log("Errors handled: " + errorObject.code);
+    // });
 
   
 
