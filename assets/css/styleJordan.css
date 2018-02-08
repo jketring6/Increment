@@ -95,6 +95,16 @@ body {
 .dropdown-menu {
   background-color: lightseagreen;
   white-space: wrap;
-  max-height: 1600%;
-  overflow-y:scroll; 
+/*  max-height: 1600%;
+*/  overflow-y: scroll; 
 }
+
+.dropdown-menu#journal-entries {
+  color: red;
+  height: 1600%;
+}
+
+
+/*TODO: 
+Prompt and input for focus
+*/
