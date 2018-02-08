@@ -36,7 +36,7 @@ database.ref().on("child_added", function(snapshotJ) {
   var addRow = snapshotJ.val();
   var timeStamp = moment().format('lll');
 
-  newRow.append(addRow.journalEntry + "<br> <br>" + timeStamp + "<li class='divider'> </li>");
+  newRow.append("Entry " + addRow.entryNumber + "<br>" + timeStamp + "<li class='divider'> </li>");
 
   $("#journal-entries").append(newRow);
 
