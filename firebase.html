@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Increment++</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+</head>
+
+<body>
+
+  <div class="row">
+    <div class="col-md-4 lefts" id="row1news">
+      <p>News</p>
+    </div>
+
+    <div class="col-md-4 centers" id="row1quote">
+      <p>Quote</p>
+    </div>
+
+    <div class="col-md-4 rights" id="row1commute">
+      <p>Commute</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 lefts" id="row2blank1">
+      <p>Blank</p>
+          <form>
+            <label for="journal-input">
+              <input type="text-submit" class="form-control" id="journal-entry" placeholder="What are you thinking?">
+            </label>
+          </form>
+    </div>
+
+    <div class="col-md-4 centers" id="row2weather">
+      <p>Weather</p>
+    </div>
+
+    <div class="col-md-4 rights" id="row2blank2">
+      <p>Blank</p>
+        <ul id="journal-entries" class="dropdown-menu">
+                    
+        </ul>
+    </div>    
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 lefts" id="row3blank1">
+      <p>Blank</p>
+        <form id="weather-form">
+    <input type="text" id="emailInput" placeholder="E-mail">
+    <input type="password" id="passInput" placeholder="Password">
+    <button id="logIn">Log in</button>
+    <button id="signUp">Sign Up</button>
+    <button id="logOut">Log Out</button>
+  </form>
+    </div>
+
+    <div class="col-md-4 centers" id="row3journal">
+      <p>Journal</p>
+    </div>
+
+    <div class="col-md-4 rights" id="row3blank2">
+      <p>Blank</p>
+    </div>      
+  </div>
+
+  <div class="row bottoms">
+    <div class="col-md-4 lefts" id="row4credit">
+      <p>Credit</p>
+    </div>
+
+    <div class="col-md-4 centers" id="row4blank">
+      <p>Blank</p>
+    </div>
+
+    <div class="col-md-4 rights" id="row4jcs">
+      <p>journalDiv - calendarDiv - settingsDiv</p>
+    </div>  
+  </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBV2ruXz-bzml8rk9eIJJyQypcERMeSVhQ&libraries=places&callback=initMap"
+    async defer></script>
+    <script type="text/javascript" src="assets/javascript/login.js"></script>
+</body>
+
+</html>

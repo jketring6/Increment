@@ -30,3 +30,9 @@ function getCommuteTime(departLocation, arriveLocation) {
     // Running the searchBandsInTown function (passing in the weather as an argument)
     getCommuteTime(departLocation, arriveLocation);
   });
+
+
+  function activatePlacesSearch() {
+    var inputDepart = $("#departInput");
+    var autocomplete = new google.maps.places.Autocomplete(inputDepart);
+  }
