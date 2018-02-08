@@ -17,7 +17,6 @@ var count = 0;
 $(document).on("submit", function(event) {
   event.preventDefault();
   count++;
- 
 
   journalInput = $("#user-input").val().trim();
 
@@ -38,12 +37,33 @@ database.ref().on("child_added", function(snapshotJ) {
 
   newRow.append("Entry " + addRow.entryNumber + "<br>" + timeStamp + "<li class='divider'> </li>");
 
+  var entryItem = $("<p>");
+
+  var deleteEntry = $("<button>");
+
+  deleteEntry.attr("data-delete", count);
+  deleteEntry.addClass("checkbox");
+  deleteEntry.append("X");
+
+  entryItem = entryItem.append(deleteEntry);
+
+  $("#journal-entries").append(deleteEntry);
+
   $("#journal-entries").append(newRow);
+});
 
-})
+//incomplete
+$(document.body).on("click", ".checkbox", function() {
+     var toDoNumber = $(this).attr("data-delete");
+
+     database.ref().child(entryNumber).remove();
+     database.ref().child(journalEntry).remove();
+
+   });
 
 
+     //TODO: 
+     //remove the journal entry user from Firebase upon X checkbox
+     //display entry body upon clicking, maybe nice animated window
+     //integrate into login to retain user profile
 
-
-//iterate i -> infiity
-  //$(..)...append("jornal entry" + i )
