@@ -60,9 +60,9 @@ auth.onAuthStateChanged(firebaseUser => {
     });
 });
 
-$("#journal-entry").on("click", function(event) {
+$(document).on("submit", "#journal-entry", function(event) {
       event.preventDefault();
-      journalEntry = $("#journal-entry").val().trim();
+      journalEntry = $("#journal-entries").val().trim();
    database.ref("user").child(userID).append({
           journalEntry: journalEntry,
           dateAdded: firebase.database.ServerValue.TIMESTAMP
@@ -70,6 +70,7 @@ $("#journal-entry").on("click", function(event) {
     });
 }); 
 
+//on(child_added). set as opposed append?
     // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
     // database.ref(user).on("child_added", function(childSnapshot) {
 
