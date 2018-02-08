@@ -52,7 +52,11 @@
             <p>Blank</p>
         </div>
         <div class="col-md-4 centers" id="row3journal">
-            <p>Journal</p>
+            <form>
+              <label for="journal-input">
+                <input type="text-submit" class="form-control" id="user-input" placeholder="What are you thinking?">
+              </label>
+            </form>
         </div>
         <div class="col-md-4 rights" id="row3blank2">
             <p>Blank</p>
@@ -72,10 +76,8 @@
                     Journal
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
-                    <li>Journal Entree 1</li>
-                    <li class="divider"></li>
-                    <li>Journal Entree 2</li>
+                <ul id="journal-entries" class="dropdown-menu">
+                    
                 </ul>
             </div>
 
@@ -84,9 +86,12 @@
     </div>
     <!-- //////////////////// -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/javascript/quote.js"></script>
     <script type="text/javascript" src="assets/javascript/news.js"></script>
+    <script type="text/javascript" src="assets/javascript/journal.js"></script>
+
 </body>
 
 </html>
