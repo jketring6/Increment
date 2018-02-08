@@ -168,7 +168,9 @@ function getCommuteTime(departLocation, arriveLocation) {
 
     $.ajax({
       url: queryURLlocation,
-      method: "GET"
+      method: "GET",
+      dataType: "json",
+      cache: false
     }).then(function(response) {
 
         console.log(response)
