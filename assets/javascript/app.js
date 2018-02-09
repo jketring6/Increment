@@ -51,6 +51,7 @@ auth.onAuthStateChanged(firebaseUser => {
   } else {
     console.log("Not logged in");
     $("#logOut").addClass("hide");
+    alert("Please sign in.");
   }
 
  $(document).on("submit", function(event) {
@@ -66,7 +67,7 @@ auth.onAuthStateChanged(firebaseUser => {
   $("#journal-input").val("");
  });
  database.ref("user/" + userID + "/journalLog").on("child_added", function(snapshotJ) {
-    $("#journal-entries").prepend("<p>" + moment(snapshotJ.val().dateAdded).format('lll') + ": " + snapshotJ.val().journalEntry)
+    $("#journal-entries").prepend("<div>" + moment(snapshotJ.val().dateAdded).format('lll') + ": " + snapshotJ.val().journalEntry + "<hr>");
 
  });
 
@@ -123,7 +124,6 @@ auth.onAuthStateChanged(firebaseUser => {
          url: queryURLnews,
          method: "GET"
      }).then(function(newsResponse) {
-         console.log(newsResponse);
 
          var topHeadlineZero = newsResponse.articles[0].title;
          var topHeadlineZeroUrl = newsResponse.articles[0].url;
@@ -166,7 +166,6 @@ $.ajax({
 	url: queryURLquote,
 	method: "GET"
 }).then(function(quoteResponse) {
-	console.log(quoteResponse);
 
 	var quote = quoteResponse.quote;
 	var author = quoteResponse.author;
@@ -189,7 +188,7 @@ function getLocalWeather(city) {
     }).then(function(response) {
     	var tempF = Math.floor((9/5)*(response.main.temp - 273) + 32)
     	var conditions = response.weather[0].description
-        $(".show-weather").append('<h3>'+ tempF);
+        $(".show-weather").append('<h3>'+ tempF + " " + "&#8457;");
         $(".weather-icons").append('<h4>' + "San Francisco, CA" + '</h4>');
 
         if (conditions == "clear sky") {

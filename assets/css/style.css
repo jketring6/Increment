@@ -1,6 +1,16 @@
 body {
   background-repeat: no-repeat;
   background-size: cover;
+  color: white;
+
+  text-shadow: -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+a:link {
+  color: white;
 }
 
 .lefts {
@@ -17,6 +27,12 @@ body {
   padding-right: 2%;
 }
 
+#bottoms {
+  position: absolute;
+  bottom: 10%;
+  width: 80%;
+}
+
 #row1news, #row1quote, #row1commute {
   padding-top: 1%;
 }
@@ -29,59 +45,57 @@ body {
   padding-bottom: 1%;
 }
 
-.bottoms {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-}
-
 /*News CSS*/
-
 .news-power {
   text-align: right;
+  font-family: Arial;
+  color: white;
   font-size: 8px;
 }
-
 .collapse-box {
-  border-radius: 25px;
-  background-color: lightgrey;
+  border-radius: 5px;
+  background-color: rgba(0,0,0, 0.4);
   padding: 5%;
   margin-top: 3%;
 }
-
 .btn, .btn-info, .btn:hover {
-  background: transparent;
-  font-family: Arial Narrow;
+  background: lightblue;
+  font-family: Arial;
   border-color: black;
+  font-size: 18px
 }
-
 .news-article {
   font-size: 14px;
+  color: white;
+  font-family: Arial;
   text-align: right;
 }
-
 .news-source {
   font-size: 10px;
+  color: white;
+  font-family: Arial;
   text-align: right;
 }
-
 #demo, .collapse-box {
   position: absolute;
   z-index: 999999;
   width: 80%;
 }
 
+
+Add CommentCollapse 
+
 /*Quote CSS*/
 
 #quote-here {
-  font-family: Arial Narrow;
+  font-family: Arial;
   font-size: 16px;
-  /*font-weight: bold;*/
+  font-weight: bold;
   color: white;
 }
 
 #author-here {
-  font-family: Arial Narrow;
+  font-family: Arial;
   font-size: 12px;
   color: white;
 }
@@ -102,13 +116,14 @@ h4 {
 
 h3 {
   color: white;
-  font-size: 55px;
+  font-size: 50px;
 }
 
 /*Journal Input*/
 
 h1 {
-  font-family: Arial Narrow;
+  font-size: 35px;
+  font-family: Arial;
   color: white;
 }
 
@@ -147,19 +162,21 @@ h1 {
 }
 
 .dropdown-menu {
-  background-color: black;
+  text-align: center;
+  background-color:rgba(0, 0, 0, 0.4);
   white-space: wrap;
-/*  max-height: 1600%;
-*/  overflow-y: scroll; 
+  overflow-y: scroll; 
 }
 
 .dropdown-menu#journal-entries {
   color: white;
   height: 600%;
+  padding: 5%;
+  margin-bottom: 3%;
 }
 
 /*Settings*/
-
-.settings-button {
-  display: left
+#settings-button {
+  background-color: transparent;
+  border-color: transparent;
 }
