@@ -96,7 +96,12 @@ body {
   max-width: 50px
 }
 
+h4 {
+  color: white;
+}
+
 h3 {
+  color: white;
   font-size: 55px;
 }
 
