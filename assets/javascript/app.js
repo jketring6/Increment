@@ -39,24 +39,27 @@ event.preventDefault();
 $(document).on("click","#logOut", function() {
 event.preventDefault();
 firebase.auth().signOut();
-})
+});
+
 
 auth.onAuthStateChanged(firebaseUser => {
  if(firebaseUser) {
    $("#logOut").removeClass("hide");
-   // console.log(firebaseUser);
-   // console.log(firebaseUser.uid);
+   $("#logIn").addClass("hide");
+   $("#signUp").addClass("hide");
    userID = firebaseUser.uid
    //Need to make each of the first branches from firebase correspond to a single user
  } else {
    console.log("Not logged in");
   $("#logOut").addClass("hide");
+  $("#logIn").removeClass("hide");
+  $("#signUp").removeClass("hide");
   // alert("login!")
  
   $("#myModal").modal("show");
-  var message = "Please signin on the bottom right corner.";
+  var message = "You haven't made an account with us yet?! What are you thinking??? Get started in the settings tab at the bottom right corner of your screen!";
   $(".modal-body").append(message);
- }
+ };
 
 
 $(document).on("submit", function(event) {
@@ -66,7 +69,6 @@ $(document).on("submit", function(event) {
   database.ref().child("user/" + userID + "/journalLog").push({
          journalEntry: journalInput,
          dateAdded: firebase.database.ServerValue.TIMESTAMP
-
    });
 
  $("#journal-input").val("");

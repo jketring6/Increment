@@ -12,11 +12,11 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 var journalInput = "";
-var count = 0;
 
 $(document).on("submit", function(event) {
   event.preventDefault();
-  count++;
+  if  ($("<input>".hasClass("login-submit")) return;
+    
 
   journalInput = $("#journal-input").val().trim();
 
@@ -26,30 +26,6 @@ $(document).on("submit", function(event) {
   });
 
   $("#journal-input").val("");
-});
-
-
-// append as li + time stamp + divider 
-database.ref().on("child_added", function(snapshotJ) {
-  var newRow = $("<li>");
-  var addRow = snapshotJ.val();
-  var timeStamp = moment().format('lll');
-
-  newRow.append("Entry " + addRow.entryNumber + "<br>" + timeStamp + "<li class='divider'> </li>");
-
-  var entryItem = $("<p>");
-
-  var deleteEntry = $("<button>");
-
-  deleteEntry.attr("data-delete", count);
-  deleteEntry.addClass("checkbox");
-  deleteEntry.append("X");
-
-  entryItem = entryItem.append(deleteEntry);
-
-  $("#journal-entries").append(deleteEntry);
-
-  $("#journal-entries").append(newRow);
 });
 
 //incomplete
