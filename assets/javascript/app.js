@@ -57,20 +57,57 @@ auth.onAuthStateChanged(firebaseUser => {
       $("#logOut").addClass("hide");
   }
 
-   database.ref("/user").push({
-      userID: userID,
-    });
-});
+$(document).on("submit", function(event) {
+  event.preventDefault();
+  journalInput = $("#journal-input").val().trim();
 
-$("#journal-entry").on("click", function(event) {
-      event.preventDefault();
-      journalEntry = $("#journal-entry").val().trim();
-   database.ref("user").child(userID).append({
-          journalEntry: journalEntry,
+   database.ref().child("user/" + userID).push({
+          journalEntry: journalInput,
           dateAdded: firebase.database.ServerValue.TIMESTAMP
 
     });
-}); 
+
+  $("#journal-input").val("");
+});
+});
+
+// $("#journal-entry").on("click", function(event) {
+//       event.preventDefault();
+//       journalEntry = $("#journal-entry").val().trim();
+//    database.ref("user").child(userID).append({
+//           journalEntry: journalEntry,
+//           dateAdded: firebase.database.ServerValue.TIMESTAMP
+
+//     });
+// }); 
+
+
+
+
+
+// append as li + time stamp + divider 
+// database.ref("user").on("child_added", function(snapshotJ) {
+//   var newRow = $("<li>");
+//   var addRow = snapshotJ.val();
+//   var timeStamp = moment().format('lll');
+
+//   newRow.append("Entry " + addRow.entryNumber + "<br>" + timeStamp + "<li class='divider'> </li>");
+
+//   var entryItem = $("<p>");
+
+//   var deleteEntry = $("<button>");
+
+//   deleteEntry.attr("data-delete", count);
+//   deleteEntry.addClass("checkbox");
+//   deleteEntry.append("X");
+
+//   entryItem = entryItem.append(deleteEntry);
+
+//   $("#journal-entries").append(deleteEntry);
+
+//   $("#journal-entries").append(newRow);
+// });
+
 
 
 // =========================================================== NEWS ================================================================
@@ -287,55 +324,55 @@ function getLocalWeather(city) {
 
 // var database = firebase.database();
 
-var journalInput = "";
-var count = 0;
+// var journalInput = "";
+// var count = 0;
 
-$(document).on("submit", function(event) {
-  event.preventDefault();
-  count++;
+// $(document).on("submit", function(event) {
+//   event.preventDefault();
+//   count++;
 
-  journalInput = $("#journal-input").val().trim();
+//   journalInput = $("#journal-input").val().trim();
 
-  database.ref().push({
-    entryNumber: count,
-    journalEntry: journalInput
-  });
+//   database.ref().push({
+//     entryNumber: count,
+//     journalEntry: journalInput
+//   });
 
-  $("#journal-input").val("");
-});
+//   $("#journal-input").val("");
+// });
 
 
-// append as li + time stamp + divider 
-database.ref().on("child_added", function(snapshotJ) {
-  var newRow = $("<li>");
-  var addRow = snapshotJ.val();
-  var timeStamp = moment().format('lll');
+// // append as li + time stamp + divider 
+// database.ref().on("child_added", function(snapshotJ) {
+//   var newRow = $("<li>");
+//   var addRow = snapshotJ.val();
+//   var timeStamp = moment().format('lll');
 
-  newRow.append("Entry " + addRow.entryNumber + "<br>" + timeStamp + "<li class='divider'> </li>");
+//   newRow.append("Entry " + addRow.entryNumber + "<br>" + timeStamp + "<li class='divider'> </li>");
 
-  var entryItem = $("<p>");
+//   var entryItem = $("<p>");
 
-  var deleteEntry = $("<button>");
+//   var deleteEntry = $("<button>");
 
-  deleteEntry.attr("data-delete", count);
-  deleteEntry.addClass("checkbox");
-  deleteEntry.append("X");
+//   deleteEntry.attr("data-delete", count);
+//   deleteEntry.addClass("checkbox");
+//   deleteEntry.append("X");
 
-  entryItem = entryItem.append(deleteEntry);
+//   entryItem = entryItem.append(deleteEntry);
 
-  $("#journal-entries").append(deleteEntry);
+//   $("#journal-entries").append(deleteEntry);
 
-  $("#journal-entries").append(newRow);
-});
+//   $("#journal-entries").append(newRow);
+// });
 
-//incomplete
-$(document.body).on("click", ".checkbox", function() {
-     var toDoNumber = $(this).attr("data-delete");
+// //incomplete
+// $(document.body).on("click", ".checkbox", function() {
+//      var toDoNumber = $(this).attr("data-delete");
 
-     database.ref().child(entryNumber).remove();
-     database.ref().child(journalEntry).remove();
+//      database.ref().child(entryNumber).remove();
+//      database.ref().child(journalEntry).remove();
 
-   });
+//    });
 
 
      //TODO: 
