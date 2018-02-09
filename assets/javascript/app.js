@@ -42,75 +42,43 @@ firebase.auth().signOut();
 })
 
 auth.onAuthStateChanged(firebaseUser => {
-  if(firebaseUser) {
-    $("#logOut").removeClass("hide");
-    // console.log(firebaseUser);
-    // console.log(firebaseUser.uid);
-    userID = firebaseUser.uid
-    //Need to make each of the first branches from firebase correspond to a single user
-  } else {
-    console.log("Not logged in");
-    $("#logOut").addClass("hide");
-    alert("Please sign in.");
-  }
+ if(firebaseUser) {
+   $("#logOut").removeClass("hide");
+   // console.log(firebaseUser);
+   // console.log(firebaseUser.uid);
+   userID = firebaseUser.uid
+   //Need to make each of the first branches from firebase correspond to a single user
+ } else {
+   console.log("Not logged in");
+  $("#logOut").addClass("hide");
+  // alert("login!")
+ 
+  $("#myModal").modal("show");
+  var message = "You haven't made an account with us yet?! What are you thinking??? Get started right away below!";
+  $(".modal-body").append(message + '<br><form><input type="text" id="emailInput" placeholder="E-mail"><input type="password" id="passInput" placeholder="Password"><button id="logIn">Log in</button><button id="signUp">Sign Up</button><button id="logOut">Log Out</button></form>');
+ }
 
- $(document).on("submit", function(event) {
-  event.preventDefault();
-  journalInput = $("#journal-input").val().trim();
 
-   database.ref().child("user/" + userID + "/journalLog").push({
-          journalEntry: journalInput,
-          dateAdded: firebase.database.ServerValue.TIMESTAMP
+$(document).on("submit", function(event) {
+ event.preventDefault();
+ journalInput = $("#journal-input").val().trim();
 
-    });
+  database.ref().child("user/" + userID + "/journalLog").push({
+         journalEntry: journalInput,
+         dateAdded: firebase.database.ServerValue.TIMESTAMP
 
-  $("#journal-input").val("");
- });
- database.ref("user/" + userID + "/journalLog").on("child_added", function(snapshotJ) {
-    $("#journal-entries").prepend("<div>" + moment(snapshotJ.val().dateAdded).format('lll') + ": " + snapshotJ.val().journalEntry + "<hr>");
+   });
 
- });
+ $("#journal-input").val("");
+});
 
+database.ref("user/" + userID + "/journalLog").on("child_added", function(snapshotJ) {
+   $("#journal-entries").prepend("<p>" + moment(snapshotJ.val().dateAdded).format('lll') + ": " + snapshotJ.val().journalEntry)
 
 });
 
-// $("#journal-entry").on("click", function(event) {
-//       event.preventDefault();
-//       journalEntry = $("#journal-entry").val().trim();
-//    database.ref("user").child(userID).append({
-//           journalEntry: journalEntry,
-//           dateAdded: firebase.database.ServerValue.TIMESTAMP
 
-//     });
-// }); 
-
-
-
-
-
-// append as li + time stamp + divider 
-// database.ref("user").on("child_added", function(snapshotJ) {
-//   var newRow = $("<li>");
-//   var addRow = snapshotJ.val();
-//   var timeStamp = moment().format('lll');
-
-//   newRow.append("Entry " + addRow.entryNumber + "<br>" + timeStamp + "<li class='divider'> </li>");
-
-//   var entryItem = $("<p>");
-
-//   var deleteEntry = $("<button>");
-
-//   deleteEntry.attr("data-delete", count);
-//   deleteEntry.addClass("checkbox");
-//   deleteEntry.append("X");
-
-//   entryItem = entryItem.append(deleteEntry);
-
-//   $("#journal-entries").append(deleteEntry);
-
-//   $("#journal-entries").append(newRow);
-// });
-
+});
 
 
 // =========================================================== NEWS ================================================================
