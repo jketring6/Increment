@@ -17,8 +17,6 @@ $(document).on("click","#logIn", function() {
   event.preventDefault();
   var email = $("#emailInput").val();
   var pass = $("#passInput").val();
-  console.log(email)
-  console.log(pass)
   var auth = firebase.auth();
   var promise =   auth.signInWithEmailAndPassword(email, pass);
   promise.catch(e => console.log(e.message));
@@ -29,14 +27,12 @@ $(document).on("click","#signUp", function() {
 event.preventDefault();
   var email = $("#emailInput").val();
   var pass = $("#passInput").val();
-  console.log(email)
-  console.log(pass)
   var auth = firebase.auth();
-  var promise =   auth.createUserWithEmailAndPassword(email, pass)
+  var promise = auth.createUserWithEmailAndPassword(email, pass);
   promise.catch(e => console.log(e.message));
 });
 
-$(document).on("click","#logOut", function() {
+$(document).on("click","#logOut", function(event) {
 event.preventDefault();
 firebase.auth().signOut();
 });
@@ -54,7 +50,6 @@ auth.onAuthStateChanged(firebaseUser => {
   $("#logOut").addClass("hide");
   $("#logIn").removeClass("hide");
   $("#signUp").removeClass("hide");
-  // alert("login!")
  
   $("#myModal").modal("show");
   var message = "You haven't made an account with us yet?! What are you thinking??? Get started in the settings tab at the bottom right corner of your screen!";

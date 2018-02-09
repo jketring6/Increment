@@ -30,7 +30,7 @@ a:link {
 #bottoms {
   position: absolute;
   bottom: 10%;
-  width: 80%;
+  width: 100%;
 }
 
 #row1news, #row1quote, #row1commute {
