@@ -1,73 +1,72 @@
-// ===========================================================Firebase login/ user login ===========================================================
+// Initialize Firebase
+ var config = {
+   apiKey: "AIzaSyAUZ6srtHsxIDDM-3zeuXAQr6C733mm_og",
+   authDomain: "project-1-c7fd4.firebaseapp.com",
+   databaseURL: "https://project-1-c7fd4.firebaseio.com",
+   projectId: "project-1-c7fd4",
+   storageBucket: "",
+   messagingSenderId: "612657157904"
+ };
+ firebase.initializeApp(config);
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAUZ6srtHsxIDDM-3zeuXAQr6C733mm_og",
-    authDomain: "project-1-c7fd4.firebaseapp.com",
-    databaseURL: "https://project-1-c7fd4.firebaseio.com",
-    projectId: "project-1-c7fd4",
-    storageBucket: "",
-    messagingSenderId: "612657157904"
-  };
-  firebase.initializeApp(config);
+ var database = firebase.database();
+ var auth = firebase.auth();
+ var userID;
 
-  var database = firebase.database();
-  var auth = firebase.auth();
-  var userID;
-
- $(document).on("click","#logIn", function() {
-    event.preventDefault();
-    var email = $("#emailInput").val();
-    var pass = $("#passInput").val();
-    console.log(email)
-    console.log(pass)
-    var auth = firebase.auth();
-    var promise =   auth.signInWithEmailAndPassword(email, pass);
-    promise.catch(e => console.log(e.message));
-    });
+$(document).on("click","#logIn", function() {
+   event.preventDefault();
+   var email = $("#emailInput").val();
+   var pass = $("#passInput").val();
+   console.log(email)
+   console.log(pass)
+   var auth = firebase.auth();
+   var promise =   auth.signInWithEmailAndPassword(email, pass);
+   promise.catch(e => console.log(e.message));
+   });
 
 
 $(document).on("click","#signUp", function() {
-  event.preventDefault();
-    var email = $("#emailInput").val();
-    var pass = $("#passInput").val();
-    console.log(email)
-    console.log(pass)
-    var auth = firebase.auth();
-    var promise =   auth.createUserWithEmailAndPassword(email, pass)
-    promise.catch(e => console.log(e.message));
+ event.preventDefault();
+   var email = $("#emailInput").val();
+   var pass = $("#passInput").val();
+   console.log(email)
+   console.log(pass)
+   var auth = firebase.auth();
+   var promise =   auth.createUserWithEmailAndPassword(email, pass)
+   promise.catch(e => console.log(e.message));
 })
+
 
 
 
 $(document).on("click","#logOut", function() {
-  event.preventDefault();
-  firebase.auth().signOut();
+ event.preventDefault();
+ firebase.auth().signOut();
 })
 
 auth.onAuthStateChanged(firebaseUser => {
-    if(firebaseUser) {
-      $("#logOut").removeClass("hide");
-      console.log(firebaseUser);
-      console.log(firebaseUser.uid);
-      userID = firebaseUser.uid
-      //Need to make each of the first branches from firebase correspond to a single user
-    } else {
-      console.log("Not logged in");
-      $("#logOut").addClass("hide");
-  }
+   if(firebaseUser) {
+     $("#logOut").removeClass("hide");
+     console.log(firebaseUser);
+     console.log(firebaseUser.uid);
+     userID = firebaseUser.uid
+     //Need to make each of the first branches from firebase correspond to a single user
+   } else {
+     console.log("Not logged in");
+     $("#logOut").addClass("hide");
+ }
 
 $(document).on("submit", function(event) {
-  event.preventDefault();
-  journalInput = $("#journal-input").val().trim();
+ event.preventDefault();
+ journalInput = $("#journal-input").val().trim();
 
-   database.ref().child("user/" + userID).push({
-          journalEntry: journalInput,
-          dateAdded: firebase.database.ServerValue.TIMESTAMP
+  database.ref().child("user/" + userID).push({
+         journalEntry: journalInput,
+         dateAdded: firebase.database.ServerValue.TIMESTAMP
 
-    });
+   });
 
-  $("#journal-input").val("");
+ $("#journal-input").val("");
 });
 });
 

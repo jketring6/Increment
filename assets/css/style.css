@@ -1,79 +1,77 @@
-/*================ Jordan + Jenn ===========================================================*/
-
 body {
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .lefts {
-	text-align: left;
-	padding-left: 2%;
+  text-align: left;
+  padding-left: 2%;
 }
 
 .centers {
-	text-align: center;
+  text-align: center;
 }
 
 .rights {
-	text-align: right;
-	padding-right: 2%;
+  text-align: right;
+  padding-right: 2%;
 }
 
 #row1news, #row1quote, #row1commute {
-	padding-top: 1%;
+  padding-top: 1%;
 }
 
 .row-two {
-	margin-top: 15%;
+  margin-top: 15%;
 }
 
 #row4credit, #row4blank, #row4jcs {
-	padding-bottom: 1%;
+  padding-bottom: 1%;
 }
 
 .bottoms {
-	position: absolute;
-	bottom: 0px;
-	width: 100%;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
 
 /*News CSS*/
 
 .news-power {
-	text-align: right;
-	font-size: 8px;
+  text-align: right;
+  font-size: 8px;
 }
 
 .collapse-box {
-	border-radius: 25px;
-	background-color: lightgrey;
-	padding: 5%;
-	margin-top: 3%;
+  border-radius: 25px;
+  background-color: lightgrey;
+  padding: 5%;
+  margin-top: 3%;
 }
 
 .news-article {
-	font-size: 14px;
-	text-align: right;
+  font-size: 14px;
+  text-align: right;
 }
 
 .news-source {
-	font-size: 10px;
-	text-align: right;
+  font-size: 10px;
+  text-align: right;
 }
 
 #demo, .collapse-box {
-	position: absolute;
-	z-index: 999999;
-	width: 80%;
+  position: absolute;
+  z-index: 999999;
+  width: 80%;
 }
 
 /*Quote CSS*/
 
 #quote-here {
-	font-family: lucida calligraphy;
-	font-weight: bold;
-	color: white;
-	font-size: 18px;
+  font-family: lucida calligraphy;
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
     text-shadow: -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
@@ -81,9 +79,9 @@ body {
 }
 
 #author-here {
-	font-family: lucida sans;
-	font-size: 14px;
-	color: white;
+  font-family: lucida sans;
+  font-size: 14px;
+  color: white;
     text-shadow: -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
@@ -100,8 +98,34 @@ body {
 
 /*Journal Input*/
 
-.journal-button {
-	display: inline-block
+h3 {
+  color: white;
+}
+
+#journal-input {
+  width  : 440px;
+  height : 98px;
+  margin : 0 auto;
+
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  
+  color: pink;
+  background: transparent;
+}
+
+#journal-input#fix {
+  font-size: 50px;
+}
+
+#journal-underline {
+  border-bottom: 20px;
+  color: red;
+}
+
+input::placeholder {
+  color: gray;
 }
 
 /*Credit*/
@@ -109,6 +133,10 @@ body {
 
 
 /*Journal Entries*/
+
+.journal-button {
+  display: inline-block
+}
 
 .dropdown-menu {
   background-color: lightseagreen;
@@ -125,21 +153,5 @@ body {
 /*Settings*/
 
 .settings-button {
-	display: left
+  display: left
 }
-
-
-/*TODO: 
-Prompt and input for focus
-*/
-
-
-/*===========================================================================*/
-
-/*===========================================================================*/
-
-/*===========================================================================*/
-
-/*===========================================================================*/
-
-/*===========================================================================
