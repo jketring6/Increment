@@ -15,7 +15,7 @@ $.ajax({
 
   var backgroundImage = Math.floor(Math.random() * arr.length);
 
-  $('body').css('background','linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(' + arr[backgroundImage] + ') center');
+  $('body').css('background','url(' + arr[backgroundImage] + ') center');
   $('body').css('background-size', 'cover');
 
   $('body').css('background-repeat', 'no-repeat');  
@@ -26,7 +26,7 @@ function(errorObject) {
 
   var imgIndex = Math.floor(Math.random() * backupImg.length);
   tempImg = backupImg[imgIndex];
-  $('body').css('background', 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(' + tempImg + ') center');
+  $('body').css('background', 'url(' + tempImg + ') center');
   $('body').css('background-size', 'cover');
 
   $('body').css('background-repeat', 'no-repeat');  

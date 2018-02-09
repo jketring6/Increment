@@ -49,6 +49,12 @@ body {
   margin-top: 3%;
 }
 
+.btn, .btn-info, .btn:hover {
+  background: transparent;
+  font-family: Arial Narrow;
+  border-color: black;
+}
+
 .news-article {
   font-size: 14px;
   text-align: right;
@@ -68,24 +74,16 @@ body {
 /*Quote CSS*/
 
 #quote-here {
-  font-family: lucida calligraphy;
-  font-weight: bold;
+  font-family: Arial Narrow;
+  font-size: 16px;
+  /*font-weight: bold;*/
   color: white;
-  font-size: 18px;
-    text-shadow: -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
 }
 
 #author-here {
-  font-family: lucida sans;
-  font-size: 14px;
+  font-family: Arial Narrow;
+  font-size: 12px;
   color: white;
-    text-shadow: -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
 }
 
 /*Commute*/
@@ -93,25 +91,34 @@ body {
 
 
 /*Weather*/
+.weather-img {
+  max-height: 50px;
+  max-width: 50px
+}
 
-
+h3 {
+  font-size: 55px;
+}
 
 /*Journal Input*/
 
-h3 {
+h1 {
+  font-family: Arial Narrow;
   color: white;
 }
 
 #journal-input {
-  width  : 440px;
-  height : 98px;
+  width  : 400px;
+  height : 60px;
   margin : 0 auto;
 
   border-top: 0;
   border-left: 0;
   border-right: 0;
+  border-bottom: 10;
   
-  color: pink;
+  font-size: 24px;
+  color: white;
   background: transparent;
 }
 
@@ -120,12 +127,8 @@ h3 {
 }
 
 #journal-underline {
-  border-bottom: 20px;
+  border-bottom-style: solid;
   color: red;
-}
-
-input::placeholder {
-  color: gray;
 }
 
 /*Credit*/
@@ -139,15 +142,15 @@ input::placeholder {
 }
 
 .dropdown-menu {
-  background-color: lightseagreen;
+  background-color: black;
   white-space: wrap;
 /*  max-height: 1600%;
 */  overflow-y: scroll; 
 }
 
 .dropdown-menu#journal-entries {
-  color: red;
-  height: 1600%;
+  color: white;
+  height: 600%;
 }
 
 /*Settings*/
