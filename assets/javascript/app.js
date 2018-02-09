@@ -25,10 +25,10 @@ $(document).on("click","#logIn", function() {
   });
 
 
-$(document).on("click","#signUp", function() {
+$(document).on("click",".signUp", function() {
 event.preventDefault();
-  var email = $("#emailInput").val();
-  var pass = $("#passInput").val();
+  var email = $(".emailInput").val();
+  var pass = $(".passInput").val();
   console.log(email)
   console.log(pass)
   var auth = firebase.auth();
@@ -36,26 +36,26 @@ event.preventDefault();
   promise.catch(e => console.log(e.message));
 });
 
-$(document).on("click","#logOut", function() {
+$(document).on("click",".logOut", function() {
 event.preventDefault();
 firebase.auth().signOut();
 })
 
 auth.onAuthStateChanged(firebaseUser => {
  if(firebaseUser) {
-   $("#logOut").removeClass("hide");
+   $(".logOut").removeClass("hide");
    // console.log(firebaseUser);
    // console.log(firebaseUser.uid);
    userID = firebaseUser.uid
    //Need to make each of the first branches from firebase correspond to a single user
  } else {
    console.log("Not logged in");
-  $("#logOut").addClass("hide");
+  $(".logOut").addClass("hide");
   // alert("login!")
  
   $("#myModal").modal("show");
   var message = "You haven't made an account with us yet?! What are you thinking??? Get started right away below!";
-  $(".modal-body").append(message + '<br><form><input type="text" id="emailInput" placeholder="E-mail"><input type="password" id="passInput" placeholder="Password"><button id="logIn">Log in</button><button id="signUp">Sign Up</button><button id="logOut">Log Out</button></form>');
+  $(".modal-body").append(message + '<br><form><input type="text" class="emailInput" placeholder="E-mail"><input type="password" id="passInput" placeholder="Password"><button id="logIn">Log in</button><button id="signUp">Sign Up</button><button id="logOut">Log Out</button></form>');
  }
 
 
@@ -158,6 +158,7 @@ function getLocalWeather(city) {
     	var conditions = response.weather[0].description
         $(".show-weather").append('<h3>'+ tempF + " " + "&#8457;");
         $(".weather-icons").append('<h4>' + "San Francisco, CA" + '</h4>');
+        console.log("Current conditon: ", conditions);
 
         if (conditions == "clear sky") {
         	$(".weather-icons").append("<img class='weather-img' src='https://cdn4.iconfinder.com/data/icons/wthr-color/32/sunny-512.png'>")
@@ -194,7 +195,7 @@ function getLocalWeather(city) {
         	$(".weather-icons").append("<img class='weather-img' src='https://www.shareicon.net/data/2016/07/22/799900_cloud_512x512.png'>")
         }
 
-        else if (conditions == "mist") {
+        else if (conditions == "mist" || conditions == "haze") {
         	$(".weather-icons").append("<img class='weather-img' src='https://cdn4.iconfinder.com/data/icons/wthr-color/32/cloud-fog-512.png'>")
         }
         
