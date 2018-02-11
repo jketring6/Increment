@@ -13,6 +13,7 @@ var database = firebase.database();
 var auth = firebase.auth();
 var userID;
 
+//Login (on page)
 $(document).on("click","#logIn", function() {
   event.preventDefault();
   var email = $("#emailInput").val();
@@ -22,7 +23,7 @@ $(document).on("click","#logIn", function() {
   promise.catch(e => console.log(e.message));
   });
 
-
+//Signup (on page)
 $(document).on("click","#signUp", function() {
 event.preventDefault();
   var email = $("#emailInput").val();
@@ -32,33 +33,74 @@ event.preventDefault();
   promise.catch(e => console.log(e.message));
 });
 
+//Logout(on page)
 $(document).on("click","#logOut", function(event) {
 event.preventDefault();
 firebase.auth().signOut();
 });
 
-
+//Detects whether or not user has logged in
 auth.onAuthStateChanged(firebaseUser => {
  if(firebaseUser) {
    $("#logOut").removeClass("hide");
    $("#logIn").addClass("hide");
    $("#signUp").addClass("hide");
    userID = firebaseUser.uid
-   //Need to make each of the first branches from firebase correspond to a single user
+   //What happens if a user hasn't logged in yet
  } else {
    console.log("Not logged in");
   $("#logOut").addClass("hide");
   $("#logIn").removeClass("hide");
   $("#signUp").removeClass("hide");
- 
+
+//Prompts user to sign in or make an account
   $("#myModal").modal("show");
   var message = "You haven't made an account with us yet?! What are you thinking??? Get started in the settings tab at the bottom right corner of your screen!";
-  $(".modal-body").append(message);
+  $(".modal-body").append(message +'<form><input class="login-submit" type="text" id="emailInput1" placeholder="E-mail"><input class="login-submit"type="password" id="passInput1" placeholder="Password"><button id="logIn1">Log in</button><button id="signUp1">Sign Up</button><button id="logOut">Log Out</button></form>');
+
+//Login (on modal)
+  $(document).on("click","#logIn1", function() {
+  event.preventDefault();
+  var email = $("#emailInput1").val();
+  var pass = $("#passInput1").val();
+  var auth = firebase.auth();
+  var promise =   auth.signInWithEmailAndPassword(email, pass);
+  promise.catch(e => console.log(e.message));
+  $("#myModal").modal("hide");
+  });
+
+//Signup (on modal)
+$(document).on("click","#signUp1", function() {
+event.preventDefault();
+  var email = $("#emailInput1").val();
+  var pass = $("#passInput1").val();
+  var auth = firebase.auth();
+  var promise = auth.createUserWithEmailAndPassword(email, pass);
+  promise.catch(e => console.log(e.message));
+  $("#myModal").modal("hide");
+  $("#initModal").modal("show");
+  
+  $(".init-modal-body").append('<form><input id="user-name" type="text" placeholder="Name"><button>Submit</button></form>');
+  $(document).on("submit",  function(event) {
+  // $("#aForm").unbind("submit").bind("submit", function(e){
+ event.preventDefault();
+
+ userName = $("#user-name").val().trim();
+
+    database.ref().child("user/" + userID + "/preferences").set({
+         name: userName,
+         
+   });
+
+ $("#journal-input").val("");
+});
+
+});
 
  };
 
 
-$(document).on("submit",  $("#journal-input").focus(), function(event) {
+$(document).on("submit",  function(event) {
   // $("#aForm").unbind("submit").bind("submit", function(e){
  event.preventDefault();
  $("#journal-input").focus()
@@ -77,6 +119,11 @@ database.ref("user/" + userID + "/journalLog").on("child_added", function(snapsh
 
 });
 
+database.ref("user/" + userID + "/preferences").on("value", function(snapshotN) {
+   $("#journal-user").text(snapshotN.val().name)
+   console.log
+
+});
 
 });
 

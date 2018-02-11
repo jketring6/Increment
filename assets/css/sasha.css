@@ -198,3 +198,7 @@ h1 {
 #init-login.dropdown-menu {
   color: black;
 }
+
+.login-submit {
+  color: black;
+}
