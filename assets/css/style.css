@@ -184,3 +184,70 @@ h1 {
 #init-login.dropdown-menu {
   color: black;
 }
+
+#user-name {
+  color: black;
+}
+
+#kavivanar{
+  font-family: 'Kavivanar', cursive;
+    transition: all 0.2s ease-in;
+    text-decoration:none;
+}
+#lora{
+  font-family: 'Lora', serif;
+    transition: all 0.2s ease-in;
+    text-decoration:none;
+}
+#indie-flower{
+  font-family: 'Indie Flower', cursive;
+    transition: all 0.2s ease-in;
+    text-decoration:none;
+}
+#bitter{
+  font-family: 'Bitter', serif;
+    transition: all 0.2s ease-in;
+    text-decoration:none;
+}
+#questrial{
+  font-family: 'Questrial', sans-serif;
+    transition: all 0.2s ease-in;
+    text-decoration:none;
+}
+
+
+#kavivanar:hover{
+  -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;
+}
+#lora:hover{
+  -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;
+}
+#indie-flower:hover{
+  -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;
+}
+#bitter:hover{
+  -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;
+}
+#questrial:hover{
+  -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;
+}
+
+
+
+
+

@@ -80,9 +80,32 @@ event.preventDefault();
   $("#myModal").modal("hide");
   $("#initModal").modal("show");
   
-  $(".init-modal-body").append('<form><input id="user-name" type="text" placeholder="Name"><button>Submit</button></form>');
+  $(".init-modal-body").append('<form><input id="user-name" type="text" placeholder="Name"><button>Submit</button></form><br><h2>Choose a Font: </h2><br><h4><span class="kavivanar">kavivanar  |  </span><span class="lora">Lora  |  </span><span class="indie-flower">Indie Flower  |  </span><span class="bitter">Bitter |  </span><span class="questrial">Questrial</h4>');
+
+    $(document).on("click","#kavivanar", function() {
+        $("body").css('font-family', '"Kavivanar", cursive')
+        $("#initModal").modal("hide");
+    })
+    $(document).on("click","#lora", function() {
+        $("body").css('font-family', '"Lora", serif')
+        $("#initModal").modal("hide");
+    })
+    $(document).on("click","#indie-flower", function() {
+        $("body").css('font-family', '"Indie Flower", cursive')
+        $("#initModal").modal("hide");
+    })
+    $(document).on("click","#bitter", function() {
+        $("body").css('font-family', '"Bitter", serif')
+        $("#initModal").modal("hide");
+    })
+    $(document).on("click","#questrial", function() {
+        $("body").css('font-family', '"Questrial", sans-serif')
+        $("#initModal").modal("hide");
+    })
+
+  //Logs name into user data
   $(document).on("submit",  function(event) {
-  // $("#aForm").unbind("submit").bind("submit", function(e){
+  
  event.preventDefault();
 
  userName = $("#user-name").val().trim();
