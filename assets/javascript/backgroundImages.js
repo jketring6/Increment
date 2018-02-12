@@ -6,8 +6,11 @@ $.ajax({
   url: queryURL,
   method: "GET"
 }).then(function(imageResponse){
+  console.log(imageResponse);
   for (var i = 0; i < imageResponse.length; i++) {
     var currentObj = imageResponse[i]["preview_photos"];
+    // console.log(imageResponse)
+    //locate index #5 for stuck in time pictures
     for(var j = 0; j < currentObj.length; j++) {      
       arr.push(currentObj[j].urls.full)
     }
