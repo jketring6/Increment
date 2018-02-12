@@ -94,11 +94,11 @@ auth.onAuthStateChanged(firebaseUser => {
 
         //Logs name into user data
         $(document).on("submit", function(event) {
-
+           if ($("#user-name").val() == "" || $("#cityInput").val() == "" ) return;
             event.preventDefault();
 
             userName = $("#user-name").val().trim();
-              // Storing the weather name
+            // Storing the weather name
             var city = $("#cityInput").val().trim();
 
 
@@ -124,8 +124,8 @@ auth.onAuthStateChanged(firebaseUser => {
 
         //Prompts user to sign in or make an account
         $("#myModal").modal("show");
-        var message = "You haven't made an account with us yet?! What are you thinking??? Get started in the settings tab at the bottom right corner of your screen!";
-        $(".modal-body").html(message + '<form><input class="login-submit" type="text" id="emailInput1" placeholder="E-mail"><input class="login-submit"type="password" id="passInput1" placeholder="Password"><button id="logIn1">Log in</button><button id="signUp1">Sign Up</button></form>');
+
+        $(".modal-body").html('<form><input class="login-submit" type="text" id="emailInput1" placeholder="E-mail"><input class="login-submit"type="password" id="passInput1" placeholder="Password"><button id="signUp1">Sign Up</button><button id="logIn1">Log in</button></form>');
 
         //Login (on modal)
         $(document).on("click", "#logIn1", function() {
@@ -149,25 +149,30 @@ auth.onAuthStateChanged(firebaseUser => {
             $("#myModal").modal("hide");
             $("#initModal").modal("show");
 
-            $(".init-modal-body").html('<form><input id="user-name" type="text" placeholder="Name"><button>Submit</button></form>');
-            // <br><h2>Choose a Font: </h2><br><h4><span class="kavivanar">kavivanar  |  </span><span class="lora">Lora  |  </span><span class="indie-flower">Indie Flower  |  </span><span class="bitter">Bitter |  </span><span class="questrial">Questrial</h4>
+            $(".init-modal-body").html('<form><h4>What is your name?</h4><input id="user-name1" type="text" placeholder="Name"><h4>Which city are you from?</h4><input id="cityInput1" type="text" placeholder="City"></form><br><h4>Choose a Font: </h4><h4><span id="kavivanar">Kavivanar    </span>|<span id="lora">   Lora</span>|<span id="indie-flower">   Indie Flower</span>|<span id="bitter">   Bitter</span>|<span id="questrial">   Questrial</h4><button id="init-submit">Submit</button>');
+            
+            $(document).on("click", "#init-submit", function(event) {
+           // if ($("#user-name").val() == "" || $("#cityInput").val() == "" ) return;
+            userName = $("#user-name1").val().trim();
+            city = $("#cityInput1").val().trim();
+            database.ref().child("user/" + userID + "/Names").set({
+                name: userName,
 
-
-            //Logs name into user data
-            $(document).on("submit", function(event) {
-
-                event.preventDefault();
-
-                userName = $("#user-name").val().trim();
-
-                database.ref().child("user/" + userID + "/Names").set({
-                    name: userName,
-
-                });
-                $("#initModal").modal("hide");
             });
 
+            database.ref().child("user/" + userID + "/Location").set({
+                city: city,
+
+            });
+            console.log("i exist")
+            $("#initModal").modal("hide");
+            });
+
+            //Logs name into user data
+
         });
+
+
 
     };
 
@@ -294,7 +299,7 @@ function getLocalWeather(city) {
         var tempF = Math.floor((9 / 5) * (response.main.temp - 273) + 32)
         var conditions = response.weather[0].description
         $(".show-weather").html('<h3>' + tempF + " " + "&#8457;");
-        $(".weather-icons").html('<h4>' + city + '</h4>');
+        $(".weather-icons").html('<h3>' + city + '</h3>');
         console.log("Current conditions: ", conditions)
 
         if (conditions == "clear sky") {
@@ -303,7 +308,7 @@ function getLocalWeather(city) {
             $(".weather-icons").append("<img class='weather-img' src='http://www.mountainweather.com/wp-content/plugins/gCAST/images/icons/mostly-sunny-skies.png'>")
         } else if (conditions == "scattered clouds") {
             $(".weather-icons").append("<img class='weather-img' src='https://cdn4.iconfinder.com/data/icons/wthr-color/32/cloud-fog-512.png'>")
-        } else if (conditions == "broken clouds") {
+        } else if (conditions == "broken clouds" || conditions == "fog" || conditions == "overcast clouds") {
             $(".weather-icons").append("<img class='weather-img' src='https://cdn4.iconfinder.com/data/icons/wthr-color/32/cloud-fog-512.png'>")
         } else if (conditions == "shower rain") {
             $(".weather-icons").append("<img class='weather-img' src='http://clipground.com/images/scattered-cloud-clipart-14.jpg'>")
@@ -322,5 +327,3 @@ function getLocalWeather(city) {
     });
 
 }
-
-

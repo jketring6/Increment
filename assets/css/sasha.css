@@ -1,5 +1,5 @@
 .modal-content {
-  background-color: rgb(57,175,249);
+  background-color: rgba(20,20,20,.6)
 }
 /* html, body {
         height: 100%;
@@ -125,6 +125,7 @@ a:link {
 
 h4 {
   color: white;
+  font-size: 
 }
 h5 {
   color: rgb(255,255,50);
@@ -145,6 +146,14 @@ h2 {
 h1 {
   font-size: 35px;
   color: white;
+}
+
+input {
+  color: black;
+}
+
+button {
+  color: black;
 }
 
 #journal-input {
@@ -288,7 +297,7 @@ h1 {
 }
 
 #footer {
-  margin-top: 9.5%;
+  margin-top: 8%;
 }
 
 .button-space {
