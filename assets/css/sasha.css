@@ -13,9 +13,11 @@
       }*/
 
 body {
+  /*font-family: questrial;*/
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  font-family: oswald;
 
   text-shadow: -1px -1px 0 #000,
     1px -1px 0 #000,
@@ -84,7 +86,7 @@ a:link {
 .news-article {
   font-size: 14px;
   color: white;
-  text-align: right;
+  text-align: left;
 }
 .news-source {
   font-size: 10px;
@@ -102,13 +104,20 @@ a:link {
   z-index: 12;
 }
 
+#gifDisplay {
+  bottom: -250px;
+  right: 400px;
+  opacity: 1;
+  z-index: 3;
+}
+
 /*Add CommentCollapse */
 
 /*Quote CSS*/
 
 #quote-here {
   font-size: 16px;
-  font-weight: bold;
+  /*font-weight: bold;*/
   color: white;
 }
 
@@ -123,22 +132,24 @@ a:link {
 
 /*Weather*/
 .weather-img {
-  max-height: 50px;
-  max-width: 50px
+  max-height: 60px;
+  max-width: 60px
+}
+
+h5 {
+  color: white;
+  font-size: 15px;
+  text-align: center;
 }
 
 h4 {
   color: white;
-  font-size: 
-}
-h5 {
-  color: rgb(255,255,50);
-  font-size: 24px;
+  font-size: 12px;
 }
 
 h3 {
   color: white;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 h2 {
@@ -146,7 +157,6 @@ h2 {
 }
 
 /*Journal Input*/
-
 h1 {
   font-size: 35px;
   color: white;
@@ -170,7 +180,7 @@ button {
   border-right: 0;
   border-bottom: 10;
   
-  font-size: 24px;
+  font-size: 30px;
   color: white;
   background: transparent;
 }
@@ -181,7 +191,7 @@ button {
 
 #journal-underline {
   border-bottom-style: solid;
-  color: red;
+  color: lightblue;
 }
 
 /*Credit*/
@@ -190,25 +200,34 @@ button {
 
 /*Journal Entries*/
 
-#all-journals {
-  width: 600%;
-}
+/*#all-journals {
+  width: 200%;
+}*/
 
 .dropdown-menu {
-  text-align: center;
-  background-color:rgba(0, 0, 0, 0.4);
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.4);
   white-space: wrap;
   overflow-y: scroll; 
+  padding: auto;
+
 }
 
 #journal-entries {
   color: white;
-  height: 600%;
-  width: 98%;
+  height: 610%;
+  width: 55%;
   padding: 5%;
   margin-bottom: 5%;
-  line-height: 1.5;
-  font-size: 18px;
+  font-size: 14px;
+}
+
+/* positioning of journal entries */
+ul#journal-entries{ 
+  top: -245px;
+  left: 195px;
+  opacity: 1;
+  z-index: 3;  
 }
 
 /*Settings*/

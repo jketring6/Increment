@@ -247,6 +247,7 @@ $("button").on("click", function() {
             var imageUrl = results.images.fixed_height.url;
         
             var gifImage = $("<img>")
+            gifImage.attr("#gifDisplay")
 
             gifImage.attr("src", imageUrl);
 
