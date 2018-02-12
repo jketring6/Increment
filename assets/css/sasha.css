@@ -97,6 +97,10 @@ a:link {
   width: 80%;
 }
 
+#newGif {
+  position: absolute;
+  z-index: 12;
+}
 
 /*Add CommentCollapse */
 
