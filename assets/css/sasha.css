@@ -51,8 +51,13 @@ a:link {
   padding-top: 1%;
 }
 
-.row-two {
-  margin-top: 15%;
+
+#row-two {
+  margin-top: 7%;
+}
+
+.row-4 {
+  margin-top: 9%;
 }
 
 #row4credit, #row4blank, #row4jcs {
@@ -62,7 +67,6 @@ a:link {
 /*News CSS*/
 .news-power {
   text-align: right;
-  font-family: Arial;
   color: white;
   font-size: 8px;
 }
@@ -74,20 +78,17 @@ a:link {
 }
 .btn, .btn-info, .btn:hover {
   background: lightblue;
-  font-family: Arial;
   border-color: black;
   font-size: 18px
 }
 .news-article {
   font-size: 14px;
   color: white;
-  font-family: Arial;
   text-align: right;
 }
 .news-source {
   font-size: 10px;
   color: white;
-  font-family: Arial;
   text-align: right;
 }
 #demo, .collapse-box {
@@ -97,19 +98,17 @@ a:link {
 }
 
 
-Add CommentCollapse 
+/*Add CommentCollapse */
 
 /*Quote CSS*/
 
 #quote-here {
-  font-family: Arial;
   font-size: 16px;
   font-weight: bold;
   color: white;
 }
 
 #author-here {
-  font-family: Arial;
   font-size: 12px;
   color: white;
 }
@@ -127,17 +126,24 @@ Add CommentCollapse 
 h4 {
   color: white;
 }
+h5 {
+  color: rgb(255,255,50);
+  font-size: 24px;
+}
 
 h3 {
   color: white;
   font-size: 50px;
 }
 
+h2 {
+  color: white;
+}
+
 /*Journal Input*/
 
 h1 {
   font-size: 35px;
-  font-family: Arial;
   color: white;
 }
 
@@ -171,8 +177,8 @@ h1 {
 
 /*Journal Entries*/
 
-.journal-button {
-  display: inline-block
+#all-journals {
+  width: 600%;
 }
 
 .dropdown-menu {
@@ -182,21 +188,25 @@ h1 {
   overflow-y: scroll; 
 }
 
-.dropdown-menu#journal-entries {
+#journal-entries {
   color: white;
   height: 600%;
+  width: 98%;
   padding: 5%;
-  margin-bottom: 3%;
+  margin-bottom: 5%;
+  line-height: 1.5;
+  font-size: 18px;
 }
 
 /*Settings*/
 #settings-button {
   background-color: transparent;
-  border-color: transparent;
+  border: solid rgba(255,255,50,.7);
 }
 
 #init-login.dropdown-menu {
   color: black;
+  padding: 5px;
 }
 
 .login-submit {
@@ -205,4 +215,125 @@ h1 {
 
 #user-name{
   color: black;
+}
+
+#init-login.dropdown-menu {
+  color: black;
+}
+
+#user-name {
+  color: black;
+}
+
+#kavivanar{
+  font-family: 'Kavivanar', cursive;
+    transition: all 0.2s ease-in;
+    text-decoration:none;
+}
+#lora{
+  font-family: 'Lora', serif;
+    transition: all 0.2s ease-in;
+    text-decoration:none;
+}
+#indie-flower{
+  font-family: 'Indie Flower', cursive;
+    transition: all 0.2s ease-in;
+    text-decoration:none;
+}
+#bitter{
+  font-family: 'Bitter', serif;
+    transition: all 0.2s ease-in;
+    text-decoration:none;
+}
+#questrial{
+  font-family: 'Questrial', sans-serif;
+    transition: all 0.2s ease-in;
+    text-decoration:none;
+}
+
+
+#kavivanar:hover{
+  -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;
+}
+#lora:hover{
+  -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;
+}
+#indie-flower:hover{
+  -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;
+}
+#bitter:hover{
+  -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;
+}
+#questrial:hover{
+  -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px yellow;
+}
+
+.scootch-left {
+  margin-left: 40px
+}
+
+#footer {
+  margin-top: 9.5%;
+}
+
+.button-space {
+  margin: 5px;
+}
+@media screen and (max-width: 980px) {
+
+
+
+}
+
+@media screen and (max-width: 768px) {
+
+
+
+}
+
+@media screen and (max-width: 640px) {
+
+  .dropdown-menu {
+    text-align: center;
+    background-color:rgba(0, 0, 0, 0.9);
+    white-space: wrap;
+    overflow-y: scroll; 
+  }
+
+  .collapse-box {
+    border-radius: 5px;
+    background-color: rgba(0,0,0, 0.9);
+    padding: 5%;
+    margin-top: 3%;
+  }
+
+  #journal-entries {
+  color: white;
+  height: 1100%;
+  width: 98%;
+  padding: 5%;
+  margin-bottom: 5%;
+  line-height: 1.5;
+  font-size: 18px;
+  }
+
+  #demo{
+    height: 1100%;
+    width: 110%
+  }
 }

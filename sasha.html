@@ -33,15 +33,15 @@
             <div id="author-here"></div>
         </div>
         <div class="col-md-4 rights" id="row1commute">
-             <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#google-maps">Plan Your Trip</button>
+<!--              <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#google-maps">Plan Your Trip</button>
             <div id="google-maps" class="collapse">
                 <div class="collapse-box">
-                </div>
+                </div> -->
             </div>
         </div>
-    </div>
+    
     <!-- //////////////////// -->
-    <div class="row row-two">
+    <div class="row" id="row-two">
         <div class="col-md-4 lefts" id="row2blank1">
             
         </div>
@@ -57,8 +57,7 @@
     </div>
     <!-- //////////////////// -->
     <div class="row">
-        <div class="col-md-4 lefts" id="row3blank1">
-            
+        <div class="col-md-4 lefts" id="row3blank1">  
         </div>
         <div class="col-md-4 centers" id="row3journal">
             <div id="journal-underline">
@@ -74,47 +73,53 @@
             
         </div>
     </div>
+
     <!-- //////////////////// -->
-    <div id="bottoms" class="row">
+    <div id="footer" class="row">
         <div class="col-md-4 lefts" id="row4credit">
-            <p>Powered by Unsplashed, Random Quote Generator, OpenWeather Maps API</p>
-        </div>
-        <div class="col-md-4 centers" id="row4blank">
-            
-        </div>
-        <div class="col-md-4 rights" id="row4jcs">
-
-            <div class="dropup journal-button">
-                <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
-                    Journal
-                    <span class="caret"></span>
-                </button>
-                <ul id="journal-entries" class="dropdown-menu">
-                </ul>
-            </div>
-
-            <div class="dropup journal-button">
+            <div class="dropup settings">
                <button id="settings-button" class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Cog_font_awesome.svg" alt="Settings" height="30px" width="30px" class="settings-button">
                </button>
                    <ul id="init-login" class="dropdown-menu">
                        <form><input class="login-submit" type="text" id="emailInput" placeholder="E-mail">
                          <input class="login-submit"type="password" id="passInput" placeholder="Password">
-                         <button id="logIn">Log in</button>
-                         <button id="signUp">Sign Up</button>
-                         <button id="logOut">Log Out</button>
+                         <button class="button-space" id="logIn">Log in</button>
+                         <button class="button-space" id="signUp">Sign Up</button>
+                         <button class="button-space" id="logOut">Log Out</button>
+                     </form>
+                     <form>
+                      <h4>Want to change your name?</h4>
+                      <input id="user-name" type="text" placeholder="Name">
+                      <button>Submit</button>
+                      <h4>Which city's weather would you like to know about?</h4>
+                      <input id="cityInput" type="text" placeholder="City">
+                      <button>Submit</button>
                      </form>
                      <br>
-                     <h2>Choose a Font: </h2>
-                     <br>
-                     <h4><span class="kavivanar">kavivanar  |  </span><span class="lora">Lora  |  </span><span class="indie-flower">Indie Flower  |  </span><span class="bitter">Bitter |  </span><span class="questrial">Questrial</h4>
-                   </ul>
-           </div>
-            
+                     <h4>Choose a Font: </h4>
+                     <h4><span id="kavivanar">Kavivanar    </span>|<span id="lora">   Lora</span>|<span id="indie-flower">   Indie Flower</span>|<span id="bitter">   Bitter</span>|<span id="questrial">   Questrial</h4>
+                   </ul>  
+           </div>          
+        </div>
+        <div class="col-md-4 centers" id="row4blank">
+          <p class="tiny-text">Powered by Unsplashed, Random Quote Generator, OpenWeather Maps API</p>
+        </div>
+        <div class="col-md-4 rights" id="row4jcs">
+
+            <div class="dropup">
+                <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
+                    Journal
+                    <span class="caret"></span>
+                </button>
+                <ul id="journal-entries" class="dropdown-menu">
+                </ul>
+                <!-- <div id="journal-entries"></div> -->
+            </div>
         </div>
       </div>
     </div>
-
+  </div>  
 
     <!-- Modal -->
    <div id="myModal" class="modal fade" role="dialog">
@@ -127,7 +132,7 @@
            <h4 class="modal-title">Hi there, please signin.</h4>
          </div>
          <div class="modal-body">
-
+            
          </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

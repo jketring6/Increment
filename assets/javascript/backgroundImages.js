@@ -1,3 +1,4 @@
+function newDailyPic() {
 var arr = [];
 
 var queryURL = "https://api.unsplash.com/users/kellysikkema/collections?client_id=c970dc76f602cc4e3a00b5108b19b36c937b43f31109a0709eaa0d2bd66f1b6f";
@@ -32,3 +33,15 @@ function(errorObject) {
   $('body').css('background-repeat', 'no-repeat');  
 
 });
+}
+
+
+// var now = new Date();
+// var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 46, 0, 0) - now;
+// if (millisTill10 < 0) {
+//      millisTill10 += 86400000; // it's after 10am, try 10am tomorrow.
+// }
+
+newDailyPic()
+// setTimeout(function(){
+//   newDailyPic()}, millisTill10);
